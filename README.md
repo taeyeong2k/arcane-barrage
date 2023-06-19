@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Game Design Document (GDD)
 
-First, run the development server:
+## 1. Game Concept
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+A browser-based, top-down mini-game inspired by Xerath's ultimate ability from League of Legends. The game includes survival and freeplay modes and introduces power-ups as the player progresses.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. Game World
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The game is set on Summoner's Rift, starting in the mid-lane. Future versions might include other environments like the jungle, dragon/baron pit, and other lanes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 3. Player Character
 
-## Learn More
+The player takes the role of Xerath, a champion from League of Legends. Xerath's ultimate ability, Arcane Barrage, is the main gameplay mechanic.
 
-To learn more about Next.js, take a look at the following resources:
+## 4. Game Modes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4.1 Survival Mode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In Survival Mode, the player has to survive waves of enemies. These waves increase in difficulty over time.
 
-## Deploy on Vercel
+### 4.2 Freeplay Mode
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Freeplay Mode is a relaxed game mode where enemies continuously respawn after they die.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 5. Enemies
+
+### 5.1 Lux
+
+The initial enemy is Lux, a champion from League of Legends without a dash ability. The enemy moves randomly on the map.
+
+### 5.2 Ezreal
+
+For later levels, an enemy like Ezreal with a dash ability can be introduced for increased difficulty.
+
+## 6. Interactions
+
+### 6.1 Losing a Life
+
+When an enemy reaches the player in Survival Mode, the player loses a life.
+
+### 6.2 Defeating Enemies
+
+When an enemy is defeated, they are eliminated from the map. In Freeplay mode, they respawn after a short time.
+
+## 7. Scoring
+
+Players score points for direct hits, combos, and their hit percentage. 
+
+## 8. Power-ups
+
+The non-Xerath player starts with a 'Flash' ability, which has a cooldown period. After passing a certain number of levels, players can buy a dash item as a power-up.
+
+## 9. Progression System
+
+In Survival Mode, the progression is based on surviving waves of enemies which increase in difficulty. In Freeplay Mode, the game continues indefinitely with enemies respawning continuously.
+
+## 10. Future Enhancements
+
+Enhancements for future versions might include different terrains, environments, more enemy types, and additional power-ups.
