@@ -1,44 +1,18 @@
-'use client';
-import Phaser from 'phaser';
-import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 
-class GameScene extends Phaser.Scene {
-  constructor() {
-    super({ key: 'gameScene' });
-  }
+const DynamicGamePage = dynamic(
+  () => import('./GamePage'), // replace this with the path to your GamePage file
+  { ssr: false }  // this will disable server-side rendering for GamePage component
+);
 
-  preload() {
-    // Preload assets
-  }
+export default function Home() {
+  // ...your other code...
 
-  create() {
-    // Create game entities
-  }
+  return (
+    // ...your other JSX...
 
-  update() {
-    // Update game entities
-  }
+    <DynamicGamePage />
+
+    // ...your other JSX...
+  );
 }
-
-const gameConfig: Phaser.Types.Core.GameConfig = {
-  title: 'Arcane Barrage',
-  type: Phaser.AUTO,
-  scale: {
-    width: window.innerWidth,
-    height: window.innerHeight,
-  },
-  scene: GameScene,
-  parent: 'game-container',
-};
-
-const GamePage = () => {
-  useEffect(() => {
-    if (document.getElementById('game-container')?.childNodes.length === 0) {
-      new Phaser.Game(gameConfig);
-    }
-  }, []);
-
-  return <div id="game-container" />;
-};
-
-export default GamePage;
