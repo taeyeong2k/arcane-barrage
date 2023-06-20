@@ -34,7 +34,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     parent: 'game-container',
   };
 
-const gamePage = () => {
+const GamePage = () => {
   useEffect(() => {
     if (document.getElementById('game-container')?.childNodes.length === 0) {
       new Phaser.Game(gameConfig);
@@ -48,4 +48,4 @@ const gamePage = () => {
   
   };
 
-  export default gamePage;
+  export default GamePage;
