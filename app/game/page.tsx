@@ -2,50 +2,43 @@
 import Phaser from 'phaser';
 import { useEffect } from 'react';
 
-const GameScene = new Phaser.Class({
-  Extends: Phaser.Scene,
+class GameScene extends Phaser.Scene {
+  constructor() {
+    super({ key: 'gameScene' });
+  }
 
-  initialize: function() {
-    Phaser.Scene.call(this, { key: 'gameScene' });
-  },
-
-  preload: function (){
+  preload() {
     // Preload assets
-  },
+  }
 
-  create: function() {
+  create() {
     // Create game entities
-  },
+  }
 
-  update: function() {
+  update() {
     // Update game entities
   }
-});
-
+}
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
-    title: 'Arcane Barrage',
-    type: Phaser.AUTO,
-    scale: {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    },
-    scene: GameScene,
-    parent: 'game-container',
-  };
+  title: 'Arcane Barrage',
+  type: Phaser.AUTO,
+  scale: {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  },
+  scene: GameScene,
+  parent: 'game-container',
+};
 
 const GamePage = () => {
   useEffect(() => {
     if (document.getElementById('game-container')?.childNodes.length === 0) {
       new Phaser.Game(gameConfig);
     }
-    return () => {};
   }, []);
-  
-  return (
-    <div id="game-container" />
-    );
-  
-  };
 
-  export default GamePage;
+  return <div id="game-container" />;
+};
+
+export default GamePage;
